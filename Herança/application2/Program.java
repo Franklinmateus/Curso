@@ -8,34 +8,19 @@ public class Program {
 
 	public static void main(String[] args) {
 	
-		Conta acc = new Conta(1001, "Alex", 0.0);
-		ContaEmpresarial bacc = new ContaEmpresarial(1002, "Maria", 0.0, 500.0);
+		Conta acc1 = new Conta(1001, "João", 1000.0);
 		
-		//UPCASTING
+		acc1.saque(200.0);
+		System.out.println(acc1.getSaldo());
 		
-		Conta acc1 = bacc;
-		Conta acc2 = new ContaEmpresarial(1003, "Bob", 0.0, 200.0);
-		Conta acc3 = new ContaPoupança(1004, "Anna", 0.0, 0.01);
+		Conta acc2 = new ContaPoupança(1002, "Maria", 1000.0, 0.01);
+		acc2.saque(200.0);
 		
-		//DOWNCASTING
+		System.out.println(acc2.getSaldo());
 		
-		ContaEmpresarial acc4 = (ContaEmpresarial) acc2;
-		acc4.emprestimo(100.0);
+		ContaEmpresarial acc3 = new ContaEmpresarial(1003, "Zé", 1000.0, 500.00);
+		acc3.saque(200);
 		
-		// ContaEmpresarial acc5 = (ContaEmpresarial) acc3;
-		
-		if (acc3 instanceof ContaEmpresarial) {
-			ContaEmpresarial acc5 = (ContaEmpresarial) acc3;
-			acc5.emprestimo(200.0);
-			System.out.println("Emprestimo!");
-		}
-		
-		if(acc3 instanceof ContaPoupança) {
-			ContaPoupança acc5 = (ContaPoupança) acc3;
-			acc5.atualizarSaldo();
-			System.out.println("Update");
-		}
-		
+		System.out.println(acc3.getSaldo());
 	}
-
 }
